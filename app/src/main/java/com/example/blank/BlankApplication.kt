@@ -14,6 +14,9 @@ class BlankApplication : RainbowCakeApplication() {
     override lateinit var injector: AppComponent
 
     override fun setupInjector() {
+        injector = DaggerAppComponent.create()
+    }
+    /*override fun setupInjector() {
         injector = DaggerAppComponent.builder()
             .applicationModule(ApplicationModule(this))
             .build()
@@ -28,6 +31,6 @@ class BlankApplication : RainbowCakeApplication() {
         }
 
         Timber.plant(Timber.DebugTree())
-    }
+    }*/
 
 }
