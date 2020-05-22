@@ -3,6 +3,7 @@ package com.example.blank.di
 import androidx.lifecycle.ViewModel
 import co.zsmb.rainbowcake.dagger.ViewModelKey
 import com.example.blank.ui.blank.BlankViewModel
+import com.example.blank.ui.recordmeal.RecordMealViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -15,5 +16,10 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(BlankViewModel::class)
     abstract fun bindBlankViewModel(blankViewModel: BlankViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(RecordMealViewModel::class)
+    abstract fun bindRecordMealViewModel(recordMealViewModel: RecordMealViewModel): ViewModel
 
 }

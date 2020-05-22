@@ -9,4 +9,8 @@ class RecordMealPresenter @Inject constructor() {
         ""
     }
 
+    suspend fun getSelectedDate(): String = withIOContext {
+        ""
+    }
+
 }

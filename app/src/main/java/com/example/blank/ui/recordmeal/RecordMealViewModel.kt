@@ -11,4 +11,12 @@ class RecordMealViewModel @Inject constructor(
         viewState = RecordMealReady(recordMealPresenter.getData())
     }
 
+//    fun showDatePicker() = execute {
+//        viewState = DatePickerClicked() // TODO
+//    }
+
+    fun showSelectedDate() = execute {
+        viewState = DateSelected(recordMealPresenter.getSelectedDate())
+    }
+
 }
