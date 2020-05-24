@@ -5,13 +5,13 @@ import android.app.Dialog
 import android.os.Bundle
 import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
+import com.example.blank.ui.CustomDatePickListener
+import com.example.blank.ui.recordmeal.RecordMealFragment
 import java.util.*
 
 class DatePickerFragment() : DialogFragment(), DatePickerDialog.OnDateSetListener {
 
-    private var year: Int = 0
-    private var month: Int = 0
-    private var day: Int = 0
+    var listener: CustomDatePickListener? = null
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val c = Calendar.getInstance()
@@ -22,9 +22,13 @@ class DatePickerFragment() : DialogFragment(), DatePickerDialog.OnDateSetListene
         return DatePickerDialog(activity!!, this, year, month, day)
     }
 
-    override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        this.year = year
-        this.month = month
-        this.day = dayOfMonth
+    public fun setCustomListener(customDatePickListener: CustomDatePickListener) {
+        this.listener = customDatePickListener
     }
+
+    override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+        val date = year.toString() + month.toString() + dayOfMonth.toString()
+        this.listener?.onDateSelected(date)
+    }
+
 }

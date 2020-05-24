@@ -6,8 +6,6 @@ object Loading : RecordMealViewState()
 
 data class RecordMealReady(val data: String = "") : RecordMealViewState()
 
-//object DatePickerClicked : RecordMealViewState()
-
 data class DateSelected(
     val date: String
 ) : RecordMealViewState()

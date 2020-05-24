@@ -1,7 +1,10 @@
 package com.example.blank.ui.recordmeal
 
+import android.app.DatePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.DatePicker
 import android.widget.ProgressBar
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.dagger.getViewModelFromFactory
@@ -9,9 +12,10 @@ import co.zsmb.rainbowcake.extensions.exhaustive
 import co.zsmb.rainbowcake.navigation.navigator
 import com.example.blank.DatePickerFragment
 import com.example.blank.R
+import com.example.blank.ui.CustomDatePickListener
 import kotlinx.android.synthetic.main.fragment_record_meal.*
 
-class RecordMealFragment : RainbowCakeFragment<RecordMealViewState, RecordMealViewModel>() {
+class RecordMealFragment : RainbowCakeFragment<RecordMealViewState, RecordMealViewModel>(), CustomDatePickListener {
 
     override fun provideViewModel() = getViewModelFromFactory()
     override fun getViewResource() = R.layout.fragment_record_meal
@@ -25,17 +29,9 @@ class RecordMealFragment : RainbowCakeFragment<RecordMealViewState, RecordMealVi
 
     private fun setupButtons() {
         datePickerButton.setOnClickListener {
-//            navigator?.add(DatePickerFragment())
             showDatePickerDialog()
         }
     }
-
-    // TODO put in the right layer ===============================
-    private fun showDatePickerDialog() {
-        val newFragment = DatePickerFragment()
-        newFragment.show(fragmentManager!!, "datePicker")
-    }
-    // TODO ======================================================
 
     override fun onStart() {
         super.onStart()
@@ -56,16 +52,22 @@ class RecordMealFragment : RainbowCakeFragment<RecordMealViewState, RecordMealVi
                 datePickerButton.visibility = View.VISIBLE
                 addMealButton.visibility = View.VISIBLE
             }
-//            is DatePickerClicked -> {
-//
-//            }
             is DateSelected -> {
-                datePickerButton.setText(viewState.date)
+//                datePickerButton.setText(viewState.date)
+                recordTV.text = viewState.date
                 // TODO show nutritional data of selected date
             }
         }.exhaustive
+    }
 
+    private fun showDatePickerDialog() {
+        val newFragment = DatePickerFragment()
+        newFragment.setCustomListener(this)
+        newFragment.show(fragmentManager!!, "datePicker")
+    }
 
+    override fun onDateSelected(date: String) {
+        viewModel.showSelectedDate(date)
     }
 
 }
