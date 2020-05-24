@@ -1,5 +1,7 @@
 package com.example.blank.ui
 
+import java.util.*
+
 interface CustomDatePickListener {
-    fun onDateSelected(date: String)
+    fun onDateSelected(date: Calendar)
 }

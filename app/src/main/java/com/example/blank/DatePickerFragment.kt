@@ -22,12 +22,14 @@ class DatePickerFragment() : DialogFragment(), DatePickerDialog.OnDateSetListene
         return DatePickerDialog(activity!!, this, year, month, day)
     }
 
-    public fun setCustomListener(customDatePickListener: CustomDatePickListener) {
+    fun setCustomListener(customDatePickListener: CustomDatePickListener) {
         this.listener = customDatePickListener
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        val date = year.toString() + month.toString() + dayOfMonth.toString()
+//        val date = year.toString() + month.toString() + dayOfMonth.toString()
+        val date = Calendar.getInstance()
+        date.set(year, month + 1, dayOfMonth)
         this.listener?.onDateSelected(date)
     }
 
