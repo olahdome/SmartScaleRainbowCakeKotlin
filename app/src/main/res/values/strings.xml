@@ -3,4 +3,8 @@
     <string name="dd_mm_yyyy">DD.MM.YYYY</string>
     <string name="add_meal">Add meal</string>
     <string name="recordTV">TextView</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_recipe">Recipe</string>
+    <string name="menu_history">History</string>
+    <string name="menu_settings">Settings</string>
 </resources>

@@ -28,6 +28,9 @@ class RecordMealFragment : RainbowCakeFragment<RecordMealViewState, RecordMealVi
         datePickerButton.setOnClickListener {
             showDatePickerDialog()
         }
+
+        
+
     }
 
     override fun onStart() {
@@ -48,11 +51,11 @@ class RecordMealFragment : RainbowCakeFragment<RecordMealViewState, RecordMealVi
                 progressBar.visibility = ProgressBar.INVISIBLE
                 datePickerButton.visibility = View.VISIBLE
                 addMealButton.visibility = View.VISIBLE
+//                navigator?.add(BottomNavFragment())
+//                bottomNavigationView.visibility = View.VISIBLE
             }
             is DateSelected -> {
                 datePickerButton.text = viewState.date
-
-//                recordTV.text = viewState.date
                 // TODO show nutritional data of selected date
             }
         }.exhaustive

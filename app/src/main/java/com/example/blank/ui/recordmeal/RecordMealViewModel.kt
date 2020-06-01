@@ -13,9 +13,6 @@ class RecordMealViewModel @Inject constructor(
     }
 
     fun showSelectedDate(date: Calendar) = execute {
-//        val date = recordMealPresenter.getSelectedDate()
-//        viewState = DateSelected(date = date)
-//        Log.d("valami", "valami")
         val formattedDate = formatDate(date)
         viewState = DateSelected(date = formattedDate)
     }
@@ -23,7 +20,6 @@ class RecordMealViewModel @Inject constructor(
     private fun formatDate(date: Calendar): String {
         val day = if ((date.get(Calendar.DAY_OF_MONTH)) < 10) "0" + date.get(Calendar.DAY_OF_MONTH).toString()
             else date.get(Calendar.DAY_OF_MONTH).toString()
-//        resultDate += "."
         val month = if ((date.get(Calendar.MONTH)) < 10) "0" + date.get(Calendar.MONTH).toString()
             else date.get(Calendar.MONTH).toString()
         val year = date.get(Calendar.YEAR).toString()
