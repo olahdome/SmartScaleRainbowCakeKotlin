@@ -6,9 +6,11 @@ import android.widget.ProgressBar
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.dagger.getViewModelFromFactory
 import co.zsmb.rainbowcake.extensions.exhaustive
+import co.zsmb.rainbowcake.navigation.navigator
 import com.example.blank.DatePickerFragment
 import com.example.blank.R
 import com.example.blank.ui.CustomDatePickListener
+import com.example.blank.ui.manualfoodsearch.ManualFoodSearchFragment
 import kotlinx.android.synthetic.main.fragment_record_meal.*
 import java.util.*
 
@@ -28,9 +30,9 @@ class RecordMealFragment : RainbowCakeFragment<RecordMealViewState, RecordMealVi
         datePickerButton.setOnClickListener {
             showDatePickerDialog()
         }
-
-        
-
+        addMealButton.setOnClickListener {
+            navigator?.add(ManualFoodSearchFragment())
+        }
     }
 
     override fun onStart() {

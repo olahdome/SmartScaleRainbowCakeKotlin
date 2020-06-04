@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import co.zsmb.rainbowcake.dagger.ViewModelKey
 import com.example.blank.ui.blank.BlankViewModel
 import com.example.blank.ui.history.HistoryViewModel
+import com.example.blank.ui.manualfoodsearch.ManualFoodSearchViewModel
 import com.example.blank.ui.recipes.RecipesViewModel
 import com.example.blank.ui.recordmeal.RecordMealViewModel
 import com.example.blank.ui.settings.SettingsViewModel
@@ -39,5 +40,10 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SettingsViewModel::class)
     abstract fun bindSettingsViewModel(settingsViewModel: SettingsViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ManualFoodSearchViewModel::class)
+    abstract fun bindManualFoodSearchViewModel(manualFoodSearchViewModel: ManualFoodSearchViewModel): ViewModel
 
 }
