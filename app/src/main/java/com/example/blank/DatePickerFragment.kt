@@ -7,6 +7,7 @@ import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
 import com.example.blank.ui.CustomDatePickListener
 import com.example.blank.ui.recordmeal.RecordMealFragment
+import kotlinx.android.synthetic.main.fragment_record_meal.*
 import java.util.*
 
 class DatePickerFragment() : DialogFragment(), DatePickerDialog.OnDateSetListener {
@@ -29,7 +30,7 @@ class DatePickerFragment() : DialogFragment(), DatePickerDialog.OnDateSetListene
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
 //        val date = year.toString() + month.toString() + dayOfMonth.toString()
         val date = Calendar.getInstance()
-        date.set(year, month + 1, dayOfMonth)
+        date.set(year, month, dayOfMonth)
         this.listener?.onDateSelected(date)
     }
 
