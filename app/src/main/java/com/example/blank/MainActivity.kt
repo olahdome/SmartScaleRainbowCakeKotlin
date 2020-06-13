@@ -2,8 +2,12 @@ package com.example.blank
 
 import android.os.Bundle
 import co.zsmb.rainbowcake.navigation.SimpleNavActivity
+import com.example.blank.ui.barcoderecognition.BarcodeRecognitionFragment
 import com.example.blank.ui.blank.BlankFragment
+import com.example.blank.ui.foodrecognition.FoodRecognitionFragment
 import com.example.blank.ui.history.HistoryFragment
+import com.example.blank.ui.manualfoodsearch.ManualFoodSearchFragment
+import com.example.blank.ui.myfoodsearch.MyFoodSearchFragment
 import com.example.blank.ui.recipes.RecipesFragment
 import com.example.blank.ui.recordmeal.RecordMealFragment
 import com.example.blank.ui.settings.SettingsFragment
@@ -29,6 +33,15 @@ class MainActivity : SimpleNavActivity() {
             }
             true
         }
-    }
 
+        topNavigationView?.setOnNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.menuManualSearch -> navigator.add(ManualFoodSearchFragment())
+                R.id.menuFoodRecognition -> navigator.add(FoodRecognitionFragment())
+                R.id.menuBarcodeRecognition -> navigator.add(BarcodeRecognitionFragment())
+                R.id.menuMyFoodSearch -> navigator.add(MyFoodSearchFragment())
+            }
+            true
+        }
+    }
 }

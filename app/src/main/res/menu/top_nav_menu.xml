@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuManualSearch"
+        android:title="@string/menu_manual_search"
+        android:icon="@drawable/ic_manual_search"/>
+    <item
+        android:id="@+id/menuFoodRecognition"
+        android:title="@string/menu_food_recognition"
+        android:icon="@drawable/ic_food_recognition"/>
+    <item
+        android:id="@+id/menuBarcodeRecognition"
+        android:title="@string/menu_barcode_recognition"
+        android:icon="@drawable/ic_barcode_recognition"/>
+    <item
+        android:id="@+id/menuMyFoodSearch"
+        android:title="@string/menu_my_food_search"
+        android:icon="@drawable/ic_my_food_search"/>
+
+</menu>
