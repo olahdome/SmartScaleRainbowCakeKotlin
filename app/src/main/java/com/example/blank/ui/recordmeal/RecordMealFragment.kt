@@ -21,12 +21,6 @@ class RecordMealFragment : RainbowCakeFragment<RecordMealViewState, RecordMealVi
     override fun provideViewModel() = getViewModelFromFactory()
     override fun getViewResource() = R.layout.fragment_record_meal
 
-//    val calendar = Calendar.getInstance()
-//    val day = calendar.get(Calendar.DAY_OF_MONTH)
-//    val month = calendar.get(Calendar.MONTH)
-//    val year = calendar.get(Calendar.YEAR)
-//    val currentDate = Calendar.getInstance()
-//    currentDate = calendar.set(year, month, day)
     private val currentDate = Calendar.getInstance()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,9 +37,6 @@ class RecordMealFragment : RainbowCakeFragment<RecordMealViewState, RecordMealVi
         addMealButton.setOnClickListener {
             navigator?.add(ManualFoodSearchFragment())
         }
-//        val calendar = Calendar.getInstance()
-//        datePickerButton.text = "%s.%s.%s".format(
-//            , , )
     }
 
     override fun onStart() {
