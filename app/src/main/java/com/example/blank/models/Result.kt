@@ -1,5 +1,12 @@
-package com.example.blank.api
+package com.example.blank.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+
+@Entity(
+    tableName = "foods"
+)
 data class Result(
     val aggregateLikes: Int,
     val analyzedInstructions: List<AnalyzedInstruction>,
@@ -13,6 +20,7 @@ data class Result(
     val gaps: String,
     val glutenFree: Boolean,
     val healthScore: Double,
+    @PrimaryKey(autoGenerate = false)
     val id: Int,
     val image: String,
     val imageType: String,

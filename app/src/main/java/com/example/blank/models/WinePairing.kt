@@ -1,4 +1,4 @@
-package com.example.blank.api
+package com.example.blank.models
 
 data class WinePairing(
     val pairedWines: List<Any>,

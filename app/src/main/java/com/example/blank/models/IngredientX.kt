@@ -1,4 +1,6 @@
-package com.example.blank.api
+package com.example.blank.models
+
+import com.example.blank.models.Nutrient
 
 data class IngredientX(
     val amount: Double,

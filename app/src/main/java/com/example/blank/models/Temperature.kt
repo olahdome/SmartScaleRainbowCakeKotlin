@@ -1,4 +1,4 @@
-package com.example.blank.api
+package com.example.blank.models
 
 data class Temperature(
     val number: Double,

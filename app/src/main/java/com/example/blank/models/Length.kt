@@ -1,4 +1,4 @@
-package com.example.blank.api
+package com.example.blank.models
 
 data class Length(
     val number: Int,
