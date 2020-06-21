@@ -1,8 +1,10 @@
 package com.example.blank.ui.manualfoodsearch
 
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.ProgressBar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -24,6 +26,8 @@ class ManualFoodSearchFragment :
     override fun provideViewModel() = getViewModelFromFactory()
     override fun getViewResource() = R.layout.fragment_manual_food_search
 
+    private val foodAdapter = FoodAdapter()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -37,7 +41,6 @@ class ManualFoodSearchFragment :
             Food(7, "Sajt", false)
         )
 
-        val foodAdapter = FoodAdapter()
         rvManualFoodSearch.adapter = foodAdapter
         rvManualFoodSearch.layoutManager = LinearLayoutManager(activity)
         foodAdapter.submitList(foodList)
@@ -49,6 +52,13 @@ class ManualFoodSearchFragment :
     private fun setupViews() {
         cancelButtonMFS.setOnClickListener {
             navigator?.add(RecordMealFragment())
+        }
+        etSearchMFS.setOnEditorActionListener { _, actionId, event ->
+            if ((event != null && (event.keyCode == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                viewModel.getFood(etSearchMFS.text.toString())
+                true
+            }
+            false
         }
     }
 
@@ -73,9 +83,17 @@ class ManualFoodSearchFragment :
                 activity?.topNavigationView?.visibility = View.VISIBLE
             }
             is ManualFoodSearchReady -> {
-
 //                navigator?.add(BottomNavFragment())
 //                bottomNavigationView.visibility = View.VISIBLE
+            }
+            is NetworkLoading -> {
+                // TODO
+            }
+            is GetFood -> {
+                foodAdapter.submitList(viewState.foodTitle)
+            }
+            is NetworkError -> {
+
             }
         }.exhaustive
     }

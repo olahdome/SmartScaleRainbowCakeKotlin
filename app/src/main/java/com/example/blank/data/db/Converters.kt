@@ -1,4 +1,4 @@
-package com.example.blank.db
+package com.example.blank.data.db
 /*
 import androidx.room.TypeConverter
 

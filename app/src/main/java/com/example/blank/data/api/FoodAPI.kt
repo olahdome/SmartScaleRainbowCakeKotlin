@@ -1,4 +1,4 @@
-package com.example.blank.api
+package com.example.blank.data.api
 
 import com.example.blank.models.FoodResponse
 import com.example.blank.util.Constants.Companion.API_KEY
@@ -13,9 +13,9 @@ interface FoodAPI {
         @Query("apiKey")
         apiKey: String = API_KEY,
         @Query("query")
-        queryFoodName: String = "",
+        queryFoodName: String? = "",
         @Query("addRecipeNutrition")
-        isAddNutrition: Boolean = false,
+        isAddNutrition: Boolean = true,
         @Query("number")
         resultNumber: Int = 20
     ): Response<FoodResponse>

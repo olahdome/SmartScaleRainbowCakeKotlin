@@ -1,14 +1,16 @@
-package com.example.blank.db
+package com.example.blank.data.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.blank.models.NutrientX
-import com.example.blank.models.Nutrition
+import com.example.blank.models.*
+import kotlin.Result
 
 @Database(
-    entities = [Result::class, Nutrition::class, NutrientX::class],
+    entities = [Result::class, Nutrition::class, NutrientX::class, AnalyzedInstruction::class, CaloricBreakdown::class,
+    Equipment::class, Ingredient::class, IngredientX::class, Length::class, Nutrient::class, Step::class, Temperature::class,
+    WeightPerServing::class, WinePairing::class],
     version = 1
 )
 abstract class FoodDatabase : RoomDatabase() {
